@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification de Sécurité IT</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f2f5; }
+        .login-container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
+        h2 { color: #1c1e21; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #dddfe2; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
+        .info { font-size: 0.85em; color: #606770; margin-top: 15px; line-height: 1.4; }
+        .highlight { color: #d93025; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Portail de Connexion</h2>
+    <p>Test de vulnérabilité de l'autocomplétion</p>
+    
+    <form>
+        <input type="text" name="email" id="username" placeholder="E-mail ou nom d'utilisateur">
+        <input type="password" name="pass" id="password" placeholder="Mot de passe">
+    </form>
+
+    <div class="info">
+        <p class="highlight">DÉMONSTRATION DE SÉCURITÉ</p>
+        Si votre mot de passe apparaît ci-dessus, c'est que votre <strong>navigateur</strong> l'a mémorisé. 
+        <br><br>
+        Imaginez si ce site était géré par un pirate : il pourrait lire ce champ instantanément.
+    </div>
+</div>
+
+</body>
+</html>
