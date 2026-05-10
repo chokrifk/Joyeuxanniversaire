@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vérification de Sécurité IT</title>
+    <title>Authentification Réseau IT</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background-color: #f0f2f5; }
-        .login-container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 100%; max-width: 400px; text-align: center; }
-        h2 { color: #1c1e21; margin-bottom: 20px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #dddfe2; border-radius: 6px; font-size: 16px; box-sizing: border-box; }
-        .info { font-size: 0.85em; color: #606770; margin-top: 15px; line-height: 1.4; }
-        .highlight { color: #d93025; font-weight: bold; }
+        .login-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); width: 100%; max-width: 380px; text-align: center; }
+        h2 { color: #1a73e8; margin-bottom: 10px; font-size: 22px; }
+        p { color: #5f6368; font-size: 14px; margin-bottom: 25px; }
+        input { width: 100%; padding: 14px; margin: 10px 0; border: 1px solid #dadce0; border-radius: 6px; font-size: 16px; box-sizing: border-box; outline: none; }
+        input:focus { border-color: #1a73e8; box-shadow: 0 0 0 2px rgba(26,115,232,0.2); }
+        .alert { background-color: #fce8e6; color: #d93025; padding: 10px; border-radius: 4px; font-size: 13px; margin-top: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="login-container">
-    <h2>Portail de Connexion</h2>
-    <p>Test de vulnérabilité de l'autocomplétion</p>
+<div class="login-box">
+    <h2>Vérification de Sécurité</h2>
+    <p>Veuillez confirmer vos accès pour continuer.</p>
     
     <form>
-        <input type="text" name="email" id="username" placeholder="E-mail ou nom d'utilisateur">
+        <input type="text" name="email" id="email" placeholder="E-mail ou Utilisateur">
         <input type="password" name="pass" id="password" placeholder="Mot de passe">
     </form>
 
-    <div class="info">
-        <p class="highlight">DÉMONSTRATION DE SÉCURITÉ</p>
-        Si votre mot de passe apparaît ci-dessus, c'est que votre <strong>navigateur</strong> l'a mémorisé. 
-        <br><br>
-        Imaginez si ce site était géré par un pirate : il pourrait lire ce champ instantanément.
+    <div class="alert">
+        ⚠️ TEST DE SENSIBILISATION IT<br>
+        <span style="font-weight: normal; color: #5f6368; font-size: 12px;">
+            Si vos informations s'affichent, c'est que votre navigateur les a pré-remplies. Un site malveillant pourrait les lire sans votre accord.
+        </span>
     </div>
 </div>
 
