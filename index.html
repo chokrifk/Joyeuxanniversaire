@@ -5,61 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Surprise ! Joyeux Anniversaire !</title>
     <style>
-        body { font-family: 'Courier New', Courier, monospace; background-color: #000; color: #00ff00; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; overflow: hidden; }
-        .container { border: 2px solid #00ff00; padding: 30px; border-radius: 15px; background: #050505; box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); }
-        h1 { font-size: 2em; margin-bottom: 10px; }
+        body { font-family: 'Courier New', Courier, monospace; background-color: #000; color: #ff0000; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; margin: 0; text-align: center; overflow: hidden; }
+        .container { border: 2px solid #ff0000; padding: 30px; border-radius: 15px; background: #050505; box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); }
+        h1 { font-size: 2em; margin-bottom: 10px; color: #00ff00; }
         p { color: #ffffff; }
         .btn-video { background-color: #ff0000; color: white; border: none; padding: 15px 30px; font-size: 1.2em; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        #hacker-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; color: red; z-index: 9999; padding-top: 100px; font-size: 1.5em; }
-        .scan-line { border-right: 2px solid red; white-space: nowrap; overflow: hidden; margin: 0 auto; animation: typing 2s steps(40, end); }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
+        #hacker-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; color: #ff0000; z-index: 9999; padding-top: 100px; font-size: 1.2em; text-align: left; padding-left: 20px; }
+        .line { margin-bottom: 5px; }
     </style>
 </head>
 <body>
 
 <div id="main-content" class="container">
     <h1>🎂 JOYEUX ANNIVERSAIRE ! 🎂</h1>
-    <p>Nous t'avons préparé une vidéo souvenir générée par l'IA !</p>
-    <p>Clique sur le bouton ci-dessous pour la découvrir :</p>
-    
-    <form style="opacity: 0; height: 0; overflow: hidden;">
-        <input type="text" name="username" value="Chokri">
-        <input type="password" name="password" id="fake_pass">
-    </form>
-
-    <button class="btn-video" onclick="startHack()">▶ VOIR MA VIDÉO IA</button>
+    <p>Ta vidéo souvenir IA est prête !</p>
+    <button class="btn-video" onclick="startHack()">▶ VOIR LA VIDÉO</button>
 </div>
 
 <div id="hacker-overlay">
-    <div class="scan-line">ACCÈS ROOT... [OK]</div>
-    <div class="scan-line">RÉCUPÉRATION DES PHOTOS... [100%]</div>
-    <div class="scan-line">EXTRACTION DES MOTS DE PASSE... [OK]</div>
-    <div class="scan-line">SYNCHRONISATION AVEC LE SERVEUR... [OK]</div>
-    <h1 style="font-size: 3em; margin-top: 50px;">COMPTE PIRATÉ</h1>
+    <div id="console"></div>
 </div>
 
 <script>
+const logs = [
+    "> CONNECTING TO LOCALHOST...",
+    "> BYPASSING FIREWALL... [OK]",
+    "> ACCESSING INSTAGRAM_CACHE... [OK]",
+    "> EXTRACTING SAVED_PASSWORDS... [OK]",
+    "> DOWNLOADING GALLERY... 15%.. 45%.. 100%",
+    "> UPLOADING TO EXTERNAL SERVER [185.23.4.12]",
+    "> WIPING SYSTEM LOGS...",
+    "> DISCONNECTING... BYE."
+];
+
 function startHack() {
-    // 1. Son de bip (optionnel selon le navigateur)
     document.getElementById('main-content').style.display = 'none';
     document.getElementById('hacker-overlay').style.display = 'block';
 
-    setTimeout(() => {
-        alert("ALERTE SYSTÈME : Une intrusion a été détectée.\n\nVos photos personnelles, vos contacts et vos mots de passe ont été transférés vers un serveur distant.");
-    }, 1500);
+    let i = 0;
+    const consoleDiv = document.getElementById('console');
+    
+    const interval = setInterval(() => {
+        if (i < logs.length) {
+            const div = document.createElement('div');
+            div.className = 'line';
+            div.innerHTML = logs[i];
+            consoleDiv.appendChild(div);
+            i++;
+        } else {
+            clearInterval(interval);
+            triggerAlerts();
+        }
+    }, 400);
+}
 
+function triggerAlerts() {
     setTimeout(() => {
-        alert("Merci pour vos données. Vos comptes de réseaux sociaux sont désormais sous notre contrôle.");
-    }, 3000);
-
-    setTimeout(() => {
-        // Expliquer que c'est une démo avant de fermer
-        alert("C'ÉTAIT UN TEST DE SÉCURITÉ !\n\nEn un seul clic, un pirate aurait pu faire tout cela.\nNe cliquez jamais sur des liens suspects, même pour un anniversaire.");
-        window.close(); // Tente de fermer la fenêtre
-        // Si la fenêtre ne se ferme pas (sécurité navigateur), on redirige vers une page blanche
-        window.location.href = "about:blank";
-    }, 4500);
+        alert("CRITICAL ERROR: Unauthorized access detected from your IP.");
+        alert("ALERTE : Vos mots de passe et photos ont été synchronisés avec succès.");
+        alert("SYSTÈME : Effacement des traces en cours...");
+        window.location.href = "about:blank"; // La page devient blanche, comme si tout avait sauté.
+    }, 500);
 }
 </script>
 
